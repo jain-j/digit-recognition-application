@@ -1,6 +1,6 @@
 # digit-recognition-application
 
-##Hello everyone,
+## Hello everyone,
 
   This is simple application to recognise digit from images.
   It uses _Convolutional Neural Network (ConvNet/CNN)_ in backend to recognise digit given in image.
@@ -75,11 +75,11 @@
                     3. Categorical accuracy 
            
   **Requirements to run this application**
-    1. jdk version >=7 (if not, download from [here](https://www.java.com/en/download/manual.jsp))
-    2. python version >=3.7.0 (if not, download from [here](https://www.python.org/downloads/))
-    3. tensorflow version >=2.0.0   (if not, refer [this](https://www.tensorflow.org/install))
-    4. pillow version >= 8.0.0  (if not, refer [this](https://pypi.org/project/Pillow/))
-    5. win32gui package (if not, refer [this](https://stackoverflow.com/questions/20113456/installing-win32gui-python-module))
+    1. jdk version >=7 (if not, download from here (https://www.java.com/en/download/manual.jsp))
+    2. python version >=3.7.0 (if not, download from here (https://www.python.org/downloads/))
+    3. tensorflow version >=2.0.0   (if not, refer this (https://www.tensorflow.org/install))
+    4. pillow version >= 8.0.0  (if not, refer this (https://pypi.org/project/Pillow/))
+    5. win32gui package (if not, refer this (https://stackoverflow.com/questions/20113456/installing-win32gui-python-module))
     
   **Steps to run application.**
     1. clone extract this repo at your end
