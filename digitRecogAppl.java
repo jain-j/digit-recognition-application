@@ -5,10 +5,6 @@ import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-
-//import paint import paint
-//from prepare_image import prepare_image
-
 class Digit_Recognizer extends JFrame implements ActionListener{
 
 	String pwd = System.getProperty("user.dir");
@@ -24,7 +20,6 @@ class Digit_Recognizer extends JFrame implements ActionListener{
 	Dimension dimension = new Dimension(700,400);
 	Font font = new Font("Arial", Font.ITALIC, 20);
 
-	//
 	Digit_Recognizer(){
 
 		super("Digit Recognizer");
@@ -81,34 +76,20 @@ class Digit_Recognizer extends JFrame implements ActionListener{
 				String command="python paint.py";
 
 				Process p = Runtime.getRuntime().exec(command);
-	            
-	            BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	            		
+				BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
-	            BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+				BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
 
-	            // read the output from the command
-				System.out.println("got output from paint.py i.e. saved file name\n");
-
+				//System.out.println("got output from paint.py i.e. saved file name\n");
 				s = stdInput.readLine();
-				System.out.println(s);
-
-	            //while ((s = stdInput.readLine()) != null) {
-	            //    System.out.println(s);
-	            //}
-	            
-	            // read any errors from the attempted command
-	            //System.out.println("errors from paint.py (if any):\n");
-	            //while ((s = stdError.readLine()) != null) {
-	            //    System.out.println(s);
-	            //}
-	            
-	            //System.exit(0);
-	        } catch (IOException e) {
-	            System.out.println("exception happened - here's what I know: ");
-	            e.printStackTrace();
-	            System.exit(-1);
-	        }
-			System.out.println("draw button pressed");
+				//System.out.println(s);
+			} catch (IOException e) {
+			    System.out.println("exception happened : ");
+			    e.printStackTrace();
+			    System.exit(-1);
+			}
+			//System.out.println("draw button pressed");
 			IMG_PATH = pwd+"\\"+s;
 			lblRes.setText("Image path: "+IMG_PATH);
 			IMG_DRAWEN = true;
@@ -116,7 +97,7 @@ class Digit_Recognizer extends JFrame implements ActionListener{
 
 		// btnOpen
 		else if (cmd == btnTexts[1]){
-			System.out.println("open button pressed");
+			//System.out.println("open button pressed");
 		
 			FileNameExtensionFilter filtr1 = new FileNameExtensionFilter("JPEG file", "jpg", "jpeg");
 			FileNameExtensionFilter filtr2 = new FileNameExtensionFilter("PNG file", "png");
@@ -141,7 +122,7 @@ class Digit_Recognizer extends JFrame implements ActionListener{
 				lblRes.setText("Image path: "+IMG_PATH);
 				IMG_DRAWEN = false;
 
-				System.out.println(IMG_PATH);
+				//System.out.println(IMG_PATH);
 			}
 		}
 
@@ -160,40 +141,24 @@ class Digit_Recognizer extends JFrame implements ActionListener{
 					else	command += " False";
 
 					Process p = Runtime.getRuntime().exec(command);
-		            
-		            BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
-		            BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+					BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
-		            // read the output from the command
-					System.out.println("got output from load_model.py");
+					BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+					
+					//System.out.println("got output from load_model.py");
 
 					s = stdInput.readLine();
 					System.out.println(s);
-
-		            //while ((s = stdInput.readLine()) != null) {
-		            //	s2 = s;
-		            //    System.out.println(s);
-		            //}
-		            
-		            // read any errors from the attempted command
-		            //System.out.println("errors from load_model.py (if any):\n");
-		            //while ((stdError.readLine()) != null) {
-		            //    System.out.println(s);
-		            //}
-		            
-		            //System.exit(0);
-		        } catch (IOException e) {
-		            System.out.println("exception happened - here's what I know: ");
-		            e.printStackTrace();
-		            System.exit(-1);
-		        }
-
-		        lblRes.setText("Result : "+s);
-			}
-
-			System.out.println("recog button pressed");
-			//#print(event)
+					
+				} catch (IOException e) {
+				    System.out.println("exception happened : ");
+				    e.printStackTrace();
+				    System.exit(-1);
+				}
+				lblRes.setText("Result : "+s);
+				}
+				//System.out.println("recog button pressed");
 		}
 	}
 }
@@ -203,17 +168,3 @@ class digitRecogAppl{
 		Digit_Recognizer d = new Digit_Recognizer();
 	}
 }
-	
-	/*def recog(self, event):
-		#img_array = prepare_image(IMG_PATH)
-		#print(img_array)
-
-		py = ProcessBuilder(["python", "prepare_image.py", IMG_PATH])
-		py.start()
-		bfr = BufferedReader(InputStreamReader(py.getInputStream()))
-		print(bfr)
-		
-		print("recog button pressed")
-		
-		lblRes.setText("Result : "+"predicted result here")
-		#print(event)*/
