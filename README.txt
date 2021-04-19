@@ -89,3 +89,5 @@
     3. open or draw image
     4. click recognize
     5. and see results (The prediction error may occur due to not having 100% of accuracy of trained model)
+
+I hope you liked it.
